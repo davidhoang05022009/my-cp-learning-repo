@@ -1,1 +1,5 @@
 bin/
+inp
+out
+*.INP
+*.OUT

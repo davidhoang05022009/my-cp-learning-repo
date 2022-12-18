@@ -1,0 +1,1 @@
+This folder contains some other problems I solved (from some place I don't even remember) :)

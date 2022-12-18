@@ -15,7 +15,7 @@
         "-g",
         "${file}",
         "-o",
-        "${fileDirname}/build/${fileBasenameNoExtension}"
+        "${fileDirname}/bin/${fileBasenameNoExtension}"
       ],
       "options": {
         "cwd": "${fileDirname}"

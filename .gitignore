@@ -4,3 +4,4 @@ out
 *.INP
 *.OUT
 .cph
+.ccls-cache

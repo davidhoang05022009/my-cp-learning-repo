@@ -12,7 +12,7 @@
         "-ggdb3",
         "-fmax-errors=2",
         "-fdiagnostics-color=always",
-        "-g",
+        "-mcmodel=medium",
         "${file}",
         "-o",
         "${fileDirname}/bin/${fileBasenameNoExtension}"

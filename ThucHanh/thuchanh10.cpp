@@ -14,7 +14,7 @@ int main()
     cin.tie(nullptr);
     ll n, a, b, q;
     cin >> n >> a >> b >> q;
-    vector<ll> x(q), mp(n);
+    ll x[q], mp[n];
     for (ll i = 0; i < q; i++)
     {
         cin >> x[i];

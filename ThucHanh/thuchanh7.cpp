@@ -4,30 +4,32 @@ using namespace std;
 using ll = long long;
 const ll maxSize = 1e9;
 ll a[20];
-bool check[maxSize];
+vector<bool> check(maxSize + 1, true);
 
-void fastio(char inputfile[], char outputfile[])
+void fastio(string inputfile, string outputfile)
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    if (fopen(inputfile, "r"))
+    if (fopen(inputfile.c_str(), "r"))
     {
-        freopen(inputfile, "r", stdin);
-        freopen(outputfile, "w", stdout);
-    };
+        freopen(inputfile.c_str(), "r", stdin);
+        freopen(outputfile.c_str(), "w", stdout);
+    }
 }
 
 bool kiemTraDonDieu(ll n)
 {
-    vector<int> p;
+    int p[10];
     bool ans = true;
+    int j = 0;
     while (n != 0)
     {
-        p.push_back(n % 10);
+        p[j] = n % 10;
         n /= 10;
+        j++;
     }
 
-    for (ll i = 1; i < p.size() - 1; i++)
+    for (ll i = 1; i < j; i++)
     {
         if (p[i] > p[i - 1] && p[i] > p[i + 1])
             ans = true;
@@ -44,16 +46,12 @@ bool kiemTraDonDieu(ll n)
 
 void sangSNT()
 {
-    for (ll i = 2; i < maxSize; i++)
-    {
-        check[i] = true;
-    }
-
-    for (ll i = 2; i < maxSize; i++)
+    check[0] = check[1] = false;
+    for (ll i = 2; i * i <= maxSize; i++)
     {
         if (check[i])
         {
-            for (ll j = i * i; j < maxSize; j += i)
+            for (ll j = i * i; j <= maxSize; j += i)
             {
                 check[j] = false;
             }
@@ -75,7 +73,7 @@ void solve(ll n, ll k)
 
     for (ll i = 2; i < 10; i++)
     {
-        for (ll j = pow(10, i); j > pow(10, i - 1) ; j--)
+        for (ll j = pow(10, i); j > pow(10, i - 1); j--)
         {
             if (check[j] && kiemTraDonDieu(j))
             {
@@ -85,7 +83,8 @@ void solve(ll n, ll k)
         }
     }
 
-    cout << cnt << endl << b[k];
+    cout << cnt << endl
+         << b[k];
 }
 
 int main()
@@ -101,4 +100,3 @@ int main()
     solve(n, k);
     return 0;
 }
-

@@ -31,7 +31,7 @@ int main()
 
     for (int i = 2; i < n; i++)
     {
-        while (x % i == 0 && kiemTraSoNguyenTo(i))
+        while (n % i == 0 && kiemTraSoNguyenTo(i))
         {
             cout << i;
             n /= i;

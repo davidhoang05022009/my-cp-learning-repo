@@ -6,7 +6,7 @@ const ll maxSize = 1e9;
 ll a[20];
 vector<bool> check(maxSize + 1, true);
 
-void fastio(string inputfile, string outputfile)
+void IO(string inputfile, string outputfile)
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
@@ -89,7 +89,7 @@ void solve(ll n, ll k)
 
 int main()
 {
-    fastio("inp", "out");
+    IO("inp", "out");
     ll n, k;
     cin >> n;
     for (ll i = 0; i < n; i++)

@@ -15,19 +15,21 @@ ll lcm(ll a, ll b) { return (a / gcd(a, b)) * b; }
 void fileio(string inputFile, string outputFile = "") { if(fopen(inputFile.c_str(), "r")) { freopen(inputFile.c_str(), "r", stdin); if (outputFile != "") freopen(outputFile.c_str(), "w", stdout); } }
 // END MACROS
 
+
 int main() {
     unsync();
-    fileio("mixmilk.in", "mixmilk.out");
-    ll c[3], m[3];
+    fileio("shell.in", "shell.out");
+    int n; cin >> n;
+    vector<int> shell_pos(3), cnt(3);
     for (int i = 0; i < 3; ++i) {
-        cin >> c[i] >> m[i];
+        shell_pos[i] = i;
     }
-    for (int i = 0; i < 100; ++i) {
-        int curr = i % 3, nb = (i + 1) % 3;
-        ll amt = min(m[curr], c[nb] - m[nb]);
-        m[curr] -= amt;
-        m[nb] += amt;
+    for (int i = 0; i < n; ++i) {
+        int a, b, g; cin >> a >> b >> g;
+        --a; --b; --g;
+        swap(shell_pos[a], shell_pos[b]);
+        ++cnt[shell_pos[g]];
     }
-    for (ll x : m) cout << x << endl;
+    cout << max({cnt[0], cnt[1], cnt[2]}) << endl;
     return 0;
 }

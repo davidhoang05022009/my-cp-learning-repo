@@ -9,7 +9,7 @@ int main()
     string s;
     cin >> s;
     ll lNum = 0, uNum = 0, n = s.length();
-    for (char &c : s)
+    for (char c : s)
     {
         if (c >= 'a' && c <= 'z')
             lNum++;
@@ -17,20 +17,18 @@ int main()
             uNum++;
     }
 
-    if (lNum > uNum || lNum == uNum)
+    if (lNum >= uNum)
     {
-        for (ll i = 0; i < n; i++)
-        {
-            if (s[i] >= 'A' && s[i] <= 'Z')
-                s[i] += 32;
+        for (auto &c : s) {
+            if (c >= 'A' && c <= 'Z')
+                c += 32;
         }
     }
     else
     {
-        for (ll i = 0; i < n; i++)
-        {
-            if (s[i] >= 'a' && s[i] <= 'z')
-                s[i] -= 32;
+        for (auto &c : s) {
+            if (c >= 'a' && c <= 'z')
+                c -= 32;
         }
     }
 
